@@ -32,6 +32,7 @@ const ShoppingCart = () => {
             <span>{item.name} - ${item.price}</span>
             <div className='quantity-controls'>
                 <button className='quantity-control-btn' onClick={() => handleDecreaseQuantity(item.id)}>-</button>
+                <span> {item.quantity} </span>
                 <button className='quantity-control-btn' onClick={() => handleIncreaseQuantity(item.id)}>+</button>
             </div>
             <button className='remove-item-btn' onClick={() => handleRemoveItem(item.id)}>Remove</button>
@@ -39,9 +40,14 @@ const ShoppingCart = () => {
 
        }
       </ul>
-      <button className="clear-cart-btn" onClick={() => handleClearCart}>Clear Cart</button>
+      <button className="clear-cart-btn" onClick={handleClearCart}>Clear Cart</button>
     </div>
-       <div>{totalAmount ? <div>'The total amount is {totalAmount}'</div>: ''}</div>
+       
+    <div> 
+        {totalAmount > 0 && <div>The total amount is ${totalAmount.toFixed(2)}</div>}
+    </div>
+
+
     </>
   );
 };

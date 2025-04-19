@@ -16,7 +16,7 @@ const ProductList = () => {
   const handleAddToCart = product => {
     dispatch(addItemToCart(product));
     setDisabledProducts([...disabledProducts, product.id]);
-  }
+  };
 
   return (
     <div className="product-list">
